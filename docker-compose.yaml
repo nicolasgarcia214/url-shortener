@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  # client:
+  #   depends_on:
+  #     - server
+  #   container_name: svelte-client
+  #   restart: always
+  #   build: ./client
+  #   ports:
+  #     - "8000:5000"
+  #   volumes:
+  #     - ./client:/usr/src/app
+  #   networks:
+  #     - tiny_url
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    networks:
+      - tiny_url
+  server:
+    depends_on:
+      - mongo
+    container_name: express-server
+    restart: always
+    build: ./server
+    ports:
+      - "4000:3000"
+    volumes:
+      - ./server:/usr/src/app
+    networks:
+      - tiny_url
+
+networks:
+  tiny_url:

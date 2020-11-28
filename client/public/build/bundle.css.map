@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "Form.svelte"
+  ],
+  "sourcesContent": [
+    "<main>\r\n\t<form action=\"javascript:;\" onsubmit=\"createUrl(displayResponse)\">\r\n        <label for=\"url\">Url to shorten:</label>\r\n        <input type=\"url\" name=\"url\" id=\"url\" required>\r\n        <label for=\"slug\">Optional. Custom micro url:</label>\r\n        <input type=\"text\" name=\"slug\" id=\"slug\">\r\n        <input type=\"submit\" value=\"Create\">\r\n    </form>\r\n</main>\r\n\r\n<style>\r\n\tmain {\r\n\t\ttext-align: center;\r\n\t\tpadding: 1em;\r\n\t\tmax-width: 240px;\r\n\t\tmargin: 0 auto;\r\n\t}\r\n\r\n\t@media (min-width: 640px) {\r\n\t\tmain {\r\n\t\t\tmax-width: none;\r\n\t\t}\r\n\t}\r\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAWC,IAAI,eAAC,CAAC,AACL,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AACf,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AAC1B,IAAI,eAAC,CAAC,AACL,SAAS,CAAE,IAAI,AAChB,CAAC,AACF,CAAC"
+}
