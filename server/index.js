@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 
 const urlRouter = require("./routes/url.routes");
@@ -15,11 +16,15 @@ const db = mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((res) => res)
+  .then((res) => {
+    console.log("Connected");
+    res;
+  })
   .catch((err) => console.log(err));
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(urlRouter);
 

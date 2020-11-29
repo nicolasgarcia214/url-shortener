@@ -1,15 +1,12 @@
-FROM node:14
+FROM node:12 AS build
 
-RUN mkdir -p /usr/src/app
-
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+COPY . ./
+RUN npm run build
 
-RUN npm i
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["npm", "run", "dev"]
+FROM nginx:1.19-alpine
+COPY --from=build /app/public /usr/share/nginx/html
